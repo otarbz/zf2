@@ -1,0 +1,14 @@
+<?php
+$title = $this->translate('Delete User');
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p><?php echo $this->translate('Are you sure you want to delete') . ' <b>' . $this->escapeHtml($users->name) . '</b> ?'; ?></p>
+
+<form action="<?php echo $this->url('users', array('action' => 'delete', 'id' => $this->id)); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo (int)$users->id; ?>" />
+        <input type="submit" class="btn btn-success" name="del" value="Yes" />
+        <input type="submit" name="del" class="btn btn-danger" value="No" />
+    </div>
+</form>
